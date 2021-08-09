@@ -1,8 +1,11 @@
-package js.chess.move;
+package js.chess.move.generators;
 
 import java.util.List;
 
 import js.chess.Board;
+import js.chess.Color;
+import js.chess.move.Move;
+import js.chess.move.MoveGenerator;
 
 public class BishopMoveGenerator implements MoveGenerator{
     
@@ -23,7 +26,7 @@ public class BishopMoveGenerator implements MoveGenerator{
     }
 
     @Override
-    public List<Move> getPossibleMoves() {
+    public List<Move> getPossibleMoves(int currentPos, Color color) {
         // TODO Auto-generated method stub
         return null;
     }

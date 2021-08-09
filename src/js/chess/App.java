@@ -9,7 +9,7 @@ public class App {
         List<Square> squares = board.getSquares();
 
         for(int i = 0; i < 64; i++) {
-            squares.get(i).setPiece(new Piece(i % 10 + ""));
+            squares.get(i).setPiece(new Piece(i % 10 + "", Color.WHITE));
         }
 
         System.out.println(board.toString());

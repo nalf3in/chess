@@ -1,5 +1,5 @@
 package js.chess;
-public enum Team {
+public enum Color {
     BLACK, 
     WHITE
 }

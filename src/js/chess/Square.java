@@ -25,6 +25,10 @@ public class Square {
         this.piece = Optional.empty();
     }
 
+    public boolean isEmpty(){
+        return !piece.isPresent();
+    }
+
     @Override
     public String toString() {
         String toReturn = " ";
