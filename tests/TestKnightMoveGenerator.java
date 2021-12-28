@@ -14,10 +14,10 @@ public class TestKnightMoveGenerator {
         Board board = new Board();
         List<Square> squares = board.getSquares();
 
-        Piece whitePiece0 = new Piece("♘", Color.WHITE, 18);
-        Piece whitePiece1 = new Piece("♘", Color.WHITE, 1);
-        Piece blackPiece = new Piece("♞", Color.BLACK, 2);
-        Piece blackPiece2 = new Piece("♞", Color.BLACK, 3);
+        Piece whitePiece0 = new Piece("♘", Color.WHITE);
+        Piece whitePiece1 = new Piece("♘", Color.WHITE);
+        Piece blackPiece = new Piece("♞", Color.BLACK);
+        Piece blackPiece2 = new Piece("♞", Color.BLACK);
 
         squares.get(0).setPiece(whitePiece0);
         squares.get(2).setPiece(blackPiece);
@@ -27,7 +27,7 @@ public class TestKnightMoveGenerator {
         KnightMoveGenerator knightMoveGenerator = new KnightMoveGenerator(board);
         System.out.println(board.toString());
 
-        List<Move> possibleMoves = knightMoveGenerator.getPossibleMoves(blackPiece);
+        List<Move> possibleMoves = knightMoveGenerator.getPossibleMoves(17, Color.BLACK);
 
 
         System.out.println(board.toString());
