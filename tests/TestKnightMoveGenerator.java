@@ -14,7 +14,7 @@ public class TestKnightMoveGenerator {
         Board board = new Board();
         List<Square> squares = board.getSquares();
 
-        Piece whitePiece0 = new Piece("♘", Color.WHITE, 0);
+        Piece whitePiece0 = new Piece("♘", Color.WHITE, 18);
         Piece whitePiece1 = new Piece("♘", Color.WHITE, 1);
         Piece blackPiece = new Piece("♞", Color.BLACK, 2);
         Piece blackPiece2 = new Piece("♞", Color.BLACK, 3);

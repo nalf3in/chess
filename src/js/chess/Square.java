@@ -1,7 +1,8 @@
 package js.chess;
 import java.util.Optional;
 
-// TODO ajouter la couleur ?
+// Existe pour manager les couleurs et le fait qu'il est possible de
+// ne pas avoir de pièces à certains index
 public class Square {
     private Optional<Piece> piece;
 
