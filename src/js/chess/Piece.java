@@ -2,12 +2,10 @@ package js.chess;
 public class Piece {
     private String symbol;
     private Color color;
-    private int pos;
 
-    public Piece(String symbol, Color color, int pos) {
+    public Piece(String symbol, Color color) {
         this.symbol = symbol;
         this.color = color;
-        this.pos = pos;
     }
 
     public String getSymbol() {
@@ -16,10 +14,6 @@ public class Piece {
     
     public Color getColor() {
         return color;
-    }
-
-    public int getPos() { 
-        return pos;
     }
 
     @Override
