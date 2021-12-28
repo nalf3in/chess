@@ -5,6 +5,7 @@ import java.util.List;
 
 import js.chess.Board;
 import js.chess.Color;
+import js.chess.Piece;
 import js.chess.Square;
 import js.chess.move.Move;
 import js.chess.move.MoveType;
@@ -34,9 +35,11 @@ public class KnightMoveGenerator implements MoveGenerator{
 
     // TODO check if in check
     @Override
-    public List<Move> getPossibleMoves(int currentPos, Color color) {
+    public List<Move> getPossibleMoves(Piece piece) {
         List<Move> moves = new ArrayList<>(8);
-        
+        int currentPos = piece.getPos();
+        Color color = piece.getColor();
+
         for (int i = 0; i < offsets.length; i++) {
 
             // checking if in bounds horizontally

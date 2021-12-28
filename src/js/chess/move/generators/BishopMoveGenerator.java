@@ -4,6 +4,7 @@ import java.util.List;
 
 import js.chess.Board;
 import js.chess.Color;
+import js.chess.Piece;
 import js.chess.move.Move;
 import js.chess.move.MoveGenerator;
 
@@ -26,7 +27,7 @@ public class BishopMoveGenerator implements MoveGenerator{
     }
 
     @Override
-    public List<Move> getPossibleMoves(int currentPos, Color color) {
+    public List<Move> getPossibleMoves(Piece piece) {
         // TODO Auto-generated method stub
         return null;
     }
