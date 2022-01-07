@@ -10,18 +10,18 @@ import js.chess.move.Move;
 import js.chess.move.MoveGenerator;
 import js.chess.move.MoveType;
 
-public class BishopMoveGenerator implements MoveGenerator {
+public class RookMoveGenerator implements MoveGenerator {
 
     private Board board;
 
     private final int[][] offsets = {
-            { -9, -18, -27, -36, -45, -54, -63 }, // top left diagonal
-            { -7, -14, -21, -28, -35, -42, -49 }, // top right diagonal
-            { 7, 14, 21, 28, 35, 42, 49 }, // bottom left diagonal
-            { 9, 18, 27, 36, 45, 54, 63 }, // bottom right diagonal
+            { -1, -2, -3, -4, -5, -6, -7 }, // left
+            { -8, -16, -24, -32, -40, -48, -56 }, // top
+            { 1, 2, 3, 4, 5, 6, 7 }, // right
+            { 8, 16, 24, 32, 40, 48, 56 }, // bottom
     };
 
-    public BishopMoveGenerator(Board board) {
+    public RookMoveGenerator(Board board) {
         this.board = board;
     }
 
@@ -50,7 +50,6 @@ public class BishopMoveGenerator implements MoveGenerator {
                         break; // We stop once we meet the first piece in the line
                     }
 
-                    previousPos = nextPos;
                 }
             }
         }

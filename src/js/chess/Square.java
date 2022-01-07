@@ -1,8 +1,7 @@
 package js.chess;
 import java.util.Optional;
 
-// Existe pour manager les couleurs et le fait qu'il est possible de
-// ne pas avoir de pièces à certains index
+// Exists mainly to manage colors for squares
 public class Square {
     private Optional<Piece> piece;
 

@@ -10,24 +10,24 @@ import js.chess.move.Move;
 import js.chess.move.MoveType;
 import js.chess.move.MoveGenerator;
 
-public class KnightMoveGenerator implements MoveGenerator{
-    
+public class KnightMoveGenerator implements MoveGenerator {
+
     private Board board;
 
     private int[] offsets = {
-        -17, -15,
-        -10, -6,
-        6, 10,
-        15, 17
+            -17, -15,
+            -10, -6,
+            6, 10,
+            15, 17
     };
 
     private int[] horizontalOffsets = {
-        -1, 1,
-        -2, 2,
-        -2, 2,
-        -1, 1
+            -1, 1,
+            -2, 2,
+            -2, 2,
+            -1, 1
     };
-    
+
     public KnightMoveGenerator(Board board) {
         this.board = board;
     }
@@ -36,7 +36,7 @@ public class KnightMoveGenerator implements MoveGenerator{
     @Override
     public List<Move> getPossibleMoves(int currentPos, Color color) {
         List<Move> moves = new ArrayList<>(8);
-        
+
         for (int i = 0; i < offsets.length; i++) {
 
             // checking if in bounds horizontally
@@ -44,15 +44,15 @@ public class KnightMoveGenerator implements MoveGenerator{
             int finalPosHor = horizontalPos + horizontalOffsets[i];
             boolean inBoundsHorizontally = finalPosHor >= 0 && finalPosHor < 8;
 
-            //checking if in bounds vertically
+            // checking if in bounds vertically
             int finalPos = currentPos + offsets[i];
             boolean inBoundsVertically = finalPos >= 0 && finalPos < 64;
 
             if (inBoundsHorizontally && inBoundsVertically) {
 
                 Square square = board.getSquares().get(finalPos);
-                
-                if(square.isEmpty()) {
+
+                if (square.isEmpty()) {
                     moves.add(new Move(currentPos, finalPos, MoveType.QUIET_MOVE));
                 } else if (square.getPiece().get().getColor() != color) {
                     moves.add(new Move(currentPos, finalPos, MoveType.CAPTURES));
@@ -62,5 +62,5 @@ public class KnightMoveGenerator implements MoveGenerator{
 
         return moves;
     }
-    
+
 }
