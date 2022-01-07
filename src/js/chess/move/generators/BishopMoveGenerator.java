@@ -43,8 +43,11 @@ public class BishopMoveGenerator implements MoveGenerator {
 
                     if (square.isEmpty()) {
                         toReturn.add(new Move(currentPos, nextPos, MoveType.QUIET_MOVE));
-                    } else if (square.getPiece().get().getColor() != color) {
-                        toReturn.add(new Move(currentPos, nextPos, MoveType.CAPTURES));
+                    } else {
+
+                        if (square.getPiece().get().getColor() != color)
+                            toReturn.add(new Move(currentPos, nextPos, MoveType.CAPTURES));
+
                         break; // We stop once we meet the first piece in the line
                     }
 
