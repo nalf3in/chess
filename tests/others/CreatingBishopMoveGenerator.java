@@ -6,6 +6,7 @@ import js.chess.Board;
 import js.chess.Color;
 import js.chess.Piece;
 import js.chess.Square;
+import js.chess.Symbol;
 import js.chess.move.Move;
 import js.chess.move.generators.BishopMoveGenerator;
 
@@ -30,8 +31,8 @@ public class CreatingBishopMoveGenerator {
         Board board = new Board();
         List<Square> squares = board.getSquares();
 
-        Piece whitePiece1 = new Piece("♗", Color.WHITE);
-        Piece test = new Piece("X", Color.BLACK);
+        Piece whitePiece1 = new Piece(Symbol.BISHOP, Color.WHITE);
+        Piece test = new Piece(Symbol.TEST0, Color.BLACK);
 
         int pos = 23;
 

@@ -34,7 +34,7 @@ public class Square {
         String toReturn = " ";
 
         if(piece.isPresent()) 
-            toReturn = piece.get().getSymbol();
+            toReturn = piece.get().toString();
 
         return toReturn;
     }

@@ -3,5 +3,7 @@
         "src",
         "tests"
     ],
-    "java.project.outputPath": "bin"
+    "workspaceKeybindings.running_Java.enabled": true,
+    "java.project.outputPath": "bin",
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m",
 }

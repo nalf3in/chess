@@ -1,5 +1,6 @@
 package js.chess;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Board {
@@ -22,6 +23,36 @@ public class Board {
 
     public List<Square> getSquares() {
         return this.squares;
+    }
+
+    public void setPiece(int index, Piece piece) { 
+        squares.get(index).setPiece(piece);
+    }
+
+    public void reset() {
+        squares.clear();
+
+        for(int i = 0; i < 64; i++) 
+            squares.add(new Square());
+    }
+
+    // Convert the algebraic notation to our implementation specific square
+    public int coordsToInt(String coords) {
+        if (coords.length() != 2) {
+            throw new IllegalArgumentException("The entered coord is invalid (more than 2 chars)");
+        }
+
+        List<Character> letters = new ArrayList<>(Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'));
+        List<Character> numbers = new ArrayList<>(Arrays.asList('1', '2', '3', '4', '5', '6', '7', '8'));
+
+        int line = letters.indexOf(coords.charAt(0));
+        int column = numbers.indexOf(coords.charAt(1));
+
+        if (line == -1 || column == -1) {
+            throw new IllegalArgumentException("The entered coord is invalid");
+        }
+
+        return line + 8 * line;
     }
 
     @Override

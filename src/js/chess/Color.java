@@ -1,5 +1,5 @@
 package js.chess;
 public enum Color {
-    BLACK, 
+    BLACK,
     WHITE
 }

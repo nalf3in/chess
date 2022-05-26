@@ -1,14 +1,14 @@
 package js.chess;
 public class Piece {
-    private String symbol;
+    private Symbol symbol;
     private Color color;
 
-    public Piece(String symbol, Color color) {
+    public Piece(Symbol symbol, Color color) {
         this.symbol = symbol;
         this.color = color;
     }
 
-    public String getSymbol() {
+    public Symbol getSymbol() {
         return this.symbol;
     }
     
@@ -18,6 +18,6 @@ public class Piece {
 
     @Override
     public String toString() {
-        return this.symbol;
+        return this.symbol.toString(this.color);
     }
 }
