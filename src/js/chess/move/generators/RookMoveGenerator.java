@@ -14,11 +14,14 @@ public class RookMoveGenerator implements MoveGenerator {
 
     private Board board;
 
-    private final int[][] offsets = {
-            { -1, -2, -3, -4, -5, -6, -7 }, // left
-            { -8, -16, -24, -32, -40, -48, -56 }, // top
-            { 1, 2, 3, 4, 5, 6, 7 }, // right
-            { 8, 16, 24, 32, 40, 48, 56 }, // bottom
+    private final int horizontalOffsets[][] = {
+        { -1, -2, -3, -4, -5, -6, -7 }, // left
+        { 1, 2, 3, 4, 5, 6, 7 }, // right
+    };
+
+    private final int verticalOffsets[][] = {
+        { 8, 16, 24, 32, 40, 48, 56 }, // bottom
+        { -8, -16, -24, -32, -40, -48, -56 }, // top
     };
 
     public RookMoveGenerator(Board board) {
@@ -27,17 +30,38 @@ public class RookMoveGenerator implements MoveGenerator {
 
     @Override
     public List<Move> getPossibleMoves(int currentPos, Color color) {
-        List<Move> toReturn = new ArrayList<>(offsets.length);
+        List<Move> toReturn = new ArrayList<>(28);
 
-        for (int[] line : offsets) {
+        for (int[] line : horizontalOffsets) {
             int previousPos = currentPos;
 
             for (int offset : line) {
                 int nextPos = currentPos + offset;
                 if (nextPos >= 0 && nextPos < 64) {
 
-                    if (Math.abs((nextPos / 8) - (previousPos / 8)) != 1)
+                    if (Math.abs((nextPos / 8) - (previousPos / 8)) != 0)
                         break; // We skip to the next diagonal if we are "out of bounds"
+
+                    Square square = board.getSquares().get(nextPos);
+
+                    if (square.isEmpty()) {
+                        toReturn.add(new Move(currentPos, nextPos, MoveType.QUIET_MOVE));
+                    } else {
+                        if (square.getPiece().get().getColor() != color)
+                            toReturn.add(new Move(currentPos, nextPos, MoveType.CAPTURES));
+
+                        break; // We stop once we meet the first piece in the line
+                    }
+
+                }
+            }
+        }
+
+        for (int[] line : verticalOffsets) {
+
+            for (int offset : line) {
+                int nextPos = currentPos + offset;
+                if (nextPos >= 0 && nextPos < 64) {
 
                     Square square = board.getSquares().get(nextPos);
 
