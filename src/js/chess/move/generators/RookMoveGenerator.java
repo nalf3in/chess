@@ -10,9 +10,7 @@ import js.chess.move.Move;
 import js.chess.move.MoveGenerator;
 import js.chess.move.MoveType;
 
-public class RookMoveGenerator implements MoveGenerator {
-
-    private Board board;
+public class RookMoveGenerator extends GenericMoveGenerator implements MoveGenerator {
 
     private final int horizontalOffsets[][] = {
         { -1, -2, -3, -4, -5, -6, -7 }, // left
@@ -24,12 +22,11 @@ public class RookMoveGenerator implements MoveGenerator {
         { -8, -16, -24, -32, -40, -48, -56 }, // top
     };
 
-    public RookMoveGenerator(Board board) {
-        this.board = board;
-    }
-
+    // TODO do better
     @Override
-    public List<Move> getPossibleMoves(int currentPos, Color color) {
+    public List<Move> getPossibleMoves(int currentPos, Board board) {
+        Color color = getPieceColor(currentPos, board);
+
         List<Move> toReturn = new ArrayList<>(28);
 
         for (int[] line : horizontalOffsets) {

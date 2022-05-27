@@ -54,10 +54,10 @@ public class CreatingBishopMoveGenerator {
             }
         }
 
-        BishopMoveGenerator bishopMoveGenerator = new BishopMoveGenerator(board);
+        BishopMoveGenerator bishopMoveGenerator = new BishopMoveGenerator();
         System.out.println(board.toString());
 
-        List<Move> possibleMoves = bishopMoveGenerator.getPossibleMoves(35, Color.BLACK);
+        List<Move> possibleMoves = bishopMoveGenerator.getPossibleMoves(35, board);
 
         System.out.println(board.toString());
     }

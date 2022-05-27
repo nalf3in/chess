@@ -29,8 +29,8 @@ public class TestRookMoveGenerator {
         System.out.println(board.toString());
         System.out.println("\n APRES");
 
-        RookMoveGenerator rookMoveGenerator = new RookMoveGenerator(board);
-        List<Move> possibleMoves = rookMoveGenerator.getPossibleMoves(17, Color.BLACK);
+        RookMoveGenerator rookMoveGenerator = new RookMoveGenerator();
+        List<Move> possibleMoves = rookMoveGenerator.getPossibleMoves(17, board);
 
         for (Move move : possibleMoves) {
             if (move.isCapture()) {

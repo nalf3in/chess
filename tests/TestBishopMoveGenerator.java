@@ -18,7 +18,7 @@ public class TestBishopMoveGenerator {
         Piece test0 = new Piece(Symbol.TEST0, Color.WHITE);
         Piece test1 = new Piece(Symbol.TEST1, Color.WHITE);
 
-        BishopMoveGenerator bishopMoveGenerator = new BishopMoveGenerator(board);
+        BishopMoveGenerator bishopMoveGenerator = new BishopMoveGenerator();
         
         int pos = 36;
         board.setPiece(pos, blackPiece);
@@ -29,7 +29,7 @@ public class TestBishopMoveGenerator {
         System.out.println(board.toString());
         System.out.println("\n APRES");
 
-        List<Move> possibleMoves = bishopMoveGenerator.getPossibleMoves(54, Color.WHITE);
+        List<Move> possibleMoves = bishopMoveGenerator.getPossibleMoves(54, board);
 
         for (Move move : possibleMoves) {
             if (move.isCapture()) {

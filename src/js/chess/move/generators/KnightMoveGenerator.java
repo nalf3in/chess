@@ -10,9 +10,7 @@ import js.chess.move.Move;
 import js.chess.move.MoveType;
 import js.chess.move.MoveGenerator;
 
-public class KnightMoveGenerator implements MoveGenerator {
-
-    private Board board;
+public class KnightMoveGenerator extends GenericMoveGenerator implements MoveGenerator {
 
     private int[] offsets = {
             -17, -15,
@@ -28,13 +26,11 @@ public class KnightMoveGenerator implements MoveGenerator {
             -1, 1
     };
 
-    public KnightMoveGenerator(Board board) {
-        this.board = board;
-    }
-
     // TODO check if in check
     @Override
-    public List<Move> getPossibleMoves(int currentPos, Color color) {
+    public List<Move> getPossibleMoves(int currentPos, Board board) {
+        Color color = getPieceColor(currentPos, board);
+
         List<Move> moves = new ArrayList<>(8);
 
         for (int i = 0; i < offsets.length; i++) {

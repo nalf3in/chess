@@ -20,7 +20,7 @@ public class TestKnightMoveGenerator {
         Piece test0 = new Piece(Symbol.TEST0, Color.WHITE);
         Piece test1 = new Piece(Symbol.TEST1, Color.WHITE);
 
-        KnightMoveGenerator knightMoveGenerator = new KnightMoveGenerator(board);
+        KnightMoveGenerator knightMoveGenerator = new KnightMoveGenerator();
 
         board.setPiece(0, whitePiece0);
         board.setPiece(2, blackPiece);
@@ -31,7 +31,7 @@ public class TestKnightMoveGenerator {
         System.out.println(board.toString());
         System.out.println("\n APRES");
 
-        List<Move> possibleMoves = knightMoveGenerator.getPossibleMoves(17, Color.BLACK);
+        List<Move> possibleMoves = knightMoveGenerator.getPossibleMoves(17, board);
 
         for (Move move : possibleMoves) {
             if (move.isCapture()) {

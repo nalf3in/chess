@@ -10,9 +10,7 @@ import js.chess.move.Move;
 import js.chess.move.MoveGenerator;
 import js.chess.move.MoveType;
 
-public class BishopMoveGenerator implements MoveGenerator {
-
-    private Board board;
+public class BishopMoveGenerator extends GenericMoveGenerator implements MoveGenerator {
 
     private final int[][] offsets = {
             { -9, -18, -27, -36, -45, -54, -63 }, // top left diagonal
@@ -21,12 +19,9 @@ public class BishopMoveGenerator implements MoveGenerator {
             { 9, 18, 27, 36, 45, 54, 63 }, // bottom right diagonal
     };
 
-    public BishopMoveGenerator(Board board) {
-        this.board = board;
-    }
-
     @Override
-    public List<Move> getPossibleMoves(int currentPos, Color color) {
+    public List<Move> getPossibleMoves(int currentPos, Board board ) {
+        Color color = getPieceColor(currentPos, board);
         List<Move> toReturn = new ArrayList<>(offsets.length);
 
         for (int[] line : offsets) {
